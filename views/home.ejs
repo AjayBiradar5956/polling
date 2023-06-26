@@ -1,0 +1,19 @@
+<center>
+    <h3>Please post a Question Below</h3>
+    <form action="/question/create" method="post">
+        <input type="text" name="question" required><br><br>
+        <input type="submit">
+    </form>
+    <h2>Open Questions</h2>
+    <ul style="list-style: none;">
+        <% doc.forEach((item)=>{ %>
+            <li>
+                <%=item.question%>
+                    <span>
+                        <a href="/question/view/<%=item.id%>">View</a>
+                        <a href="/question/delete/<%=item.id%>">Delete</a>
+                    </span>
+            </li>
+            <%})%>
+    </ul>
+</center>

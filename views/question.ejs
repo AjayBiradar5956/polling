@@ -1,0 +1,29 @@
+<center>
+    <div>
+        <%=doc.question%>
+    </div>
+    <div>
+        <%if(opt){%>
+            <ul>
+                <% opt.forEach((item)=>{%>
+                    <li>
+                        <%=item.option%>
+                            <span>
+                                <%=item.vote%>
+                            </span>
+                            <span><a href="/option/vote/<%=item.id%>">Link_to_Vote</a></span>
+                            <span><a href="/option/delete/<%=item.id%>">Delete</a></span>
+                    </li>
+                    <%})%>
+            </ul>
+            <%}%>
+    </div>
+    <br>
+    <div>
+        <div>Add Options</div><br><br>
+        <form action="/option/create/<%=doc.id%>" method="post">
+            <input type="text" name="option">
+            <input type="submit">
+        </form>
+    </div>
+</center>
