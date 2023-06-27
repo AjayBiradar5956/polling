@@ -18,12 +18,13 @@
             <ul class="list-group mt-3 mx-3" style="list-style: none;" id="openQuestionList">
                 <% doc.forEach((item)=>{ %>
                     <li>
-                        <%=item.question%>
-                            <span>
-                                <a href="/question/view/<%=item.id%>" id="view"><i class="fa-solid fa-eye"></i></a>
-                                <a href="/question/delete/<%=item.id%>" id="delete"><i
-                                        class="fa-solid fa-trash"></i></a>
-                            </span>
+                        <span class="me-5">
+                            <%=item.question%> ?
+                        </span>
+                        <span class="ms-5">
+                            <a href="/question/view/<%=item.id%>" id="view"><i class="fa-solid fa-eye"></i></a>
+                            <a href="/question/delete/<%=item.id%>" id="delete"><i class="fa-solid fa-trash"></i></a>
+                        </span>
                     </li>
                     <hr>
                     <%})%>
