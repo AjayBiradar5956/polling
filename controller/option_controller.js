@@ -1,7 +1,6 @@
 const Option = require('../model/options');
 const Question = require('../model/question');
 
-
 module.exports.delete = function (req, res) {
     Option.deleteOne({ _id: req.params.id })
         .then(() => {

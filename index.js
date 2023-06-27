@@ -23,8 +23,3 @@ app.listen(port, function (err) {
     }
     console.log("app running on port", port);
 })
-
-
-//check if the linktovote is working or not
-//work on lintovote exact link so that it gets incremented and shows the question/view page and
-//not the homepage

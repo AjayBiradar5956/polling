@@ -1,7 +1,6 @@
 const Question = require('../model/question');
 const Option = require('../model/options');
 
-
 module.exports.createOpt = function (req, res) {
     Option.create({
         option: req.body.option,
@@ -17,7 +16,6 @@ module.exports.createOpt = function (req, res) {
 
         })
 }
-
 
 module.exports.createQue = function (req, res) {
     let inputQuestion = req.body.question.toLowerCase();
