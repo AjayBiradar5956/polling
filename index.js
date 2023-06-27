@@ -5,6 +5,8 @@ const db = require('./config/mongoose');
 const expressLayouts = require('express-ejs-layouts');
 app.use(express.urlencoded());
 
+app.use(express.static('assets'));
+
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
@@ -24,8 +26,5 @@ app.listen(port, function (err) {
 
 
 //check if the linktovote is working or not
-//if the question is deleted all the options too must get deleted - work inside the question delete
-//controller for this and delete all the options (deletemany)
-// work on css of the website
 //work on lintovote exact link so that it gets incremented and shows the question/view page and
 //not the homepage

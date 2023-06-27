@@ -1,29 +1,39 @@
-<center>
-    <div>
-        <%=doc.question%>
+<link rel="stylesheet" href="/css/question.css">
+<div class="questionPage">
+    <div class="questionContainer mt-5">
+        <div class="question">
+            <div class="mt-2 questionName">
+                <%=doc.question%>?
+            </div>
+            <hr>
+            <div>
+                <%if(opt){%>
+                    <ol class="list-group mx-3" id="questionList">
+                        <% opt.forEach((item)=>{%>
+                            <li class="ms-4">
+                                <%=item.option%>
+                                    <span class="badge bg-primary rounded-pill">
+                                        <%=item.vote%>
+                                    </span>
+                                    <span><a href="/option/vote/<%=item.id%>" id="like"><i
+                                                class="fa-solid fa-thumbs-up"></i></a></span>
+                                    <span><a href="/option/delete/<%=item.id%>" id="delete"><i
+                                                class="fa-solid fa-trash"></i></a></span>
+                            </li>
+                            <hr>
+                            <%})%>
+                    </ol>
+                    <%}%>
+            </div>
+        </div>
     </div>
-    <div>
-        <%if(opt){%>
-            <ul>
-                <% opt.forEach((item)=>{%>
-                    <li>
-                        <%=item.option%>
-                            <span>
-                                <%=item.vote%>
-                            </span>
-                            <span><a href="/option/vote/<%=item.id%>">Link_to_Vote</a></span>
-                            <span><a href="/option/delete/<%=item.id%>">Delete</a></span>
-                    </li>
-                    <%})%>
-            </ul>
-            <%}%>
+    <div class="askQuestionContainer">
+        <div class="askquestion mt-5">
+            <div class="pt-3">Add Options</div>
+            <form action="/question/<%=doc.id%>/option/create" method="post">
+                <input type="text" name="option">
+                <input type="submit" class="mt-5">
+            </form>
+        </div>
     </div>
-    <br>
-    <div>
-        <div>Add Options</div><br><br>
-        <form action="/option/create/<%=doc.id%>" method="post">
-            <input type="text" name="option">
-            <input type="submit">
-        </form>
-    </div>
-</center>
+</div>

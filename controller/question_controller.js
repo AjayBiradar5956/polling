@@ -1,6 +1,24 @@
 const Question = require('../model/question');
 const Option = require('../model/options');
 
+
+module.exports.createOpt = function (req, res) {
+    Option.create({
+        option: req.body.option,
+        question: req.params.id,
+    })
+        .then((createdDoc) => {
+            let path = `http://localhost:8000/option/vote/${createdDoc.id}`;
+            let id = createdDoc.id;
+            Option.findByIdAndUpdate(id, { link_to_vote: path })
+                .then(() => {
+                    return res.redirect('back');
+                })
+
+        })
+}
+
+
 module.exports.createQue = function (req, res) {
     let inputQuestion = req.body.question.toLowerCase();
     Question.findOne({ question: inputQuestion })
@@ -27,7 +45,11 @@ module.exports.createQue = function (req, res) {
 module.exports.deleteQue = function (req, res) {
     Question.deleteOne({ _id: req.params.id })
         .then(() => {
-            return res.redirect('back');
+            Option.deleteMany({ question: req.params.id })
+                .then(() => {
+                    return res.redirect('back');
+                })
+
         }).catch((err) => {
             return console.log(err);
         })

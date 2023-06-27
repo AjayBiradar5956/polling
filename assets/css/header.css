@@ -1,0 +1,27 @@
+header {
+    color: Black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+}
+
+#appName {
+    font-size: 2.7rem;
+    font-family: sans-serif;
+    font-weight: 500;
+}
+
+#home {
+    margin-right: 35px;
+    position: absolute;
+    right: 0;
+}
+
+#home a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.7rem;
+    font-weight: 400;
+}

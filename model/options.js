@@ -9,8 +9,9 @@ const optionSchema = new mongoose.Schema({
         type: Number,
         default: 0,
     },
-    Link_to_vote: {
+    link_to_vote: {
         type: String,
+        default: " ",
     },
     question: {
         type: mongoose.Schema.Types.ObjectId,
